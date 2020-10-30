@@ -1,0 +1,73 @@
+{% extends "socialnetwork/base.html" %}
+
+{% block user-info %}
+    <div class="header">
+        <span id="id_logged_in_user_name"><i class="fas fa-user"></i> {{user.first_name}} {{user.last_name}}</span>
+        <div class="dropdown">
+            <button id="id_show_nav_button" onclick="showNav()" class="dropbtn">&darr;</button>
+            <div id ="my_dropdown" class="dropdown-content">
+                <a href="{% url 'global_stream' %}" id = "id_nav_global_stream">Global Stream</a>
+                <a href="{% url 'follower_stream' %}" id = "id_nav_follower_stream">Follower Stream</a>
+                <a href="{% url 'my_profile' %}" id = "id_nav_profile">My Profile</a>
+                <a href="{% url 'login' %}" id = "id_nav_logout">Logout</a>
+              </div>
+          </div>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+<div>
+    <p id="id_name_of_page" class="page_name">Profile Page for {{user.first_name}} {{user.last_name}}</p>
+    {% if not profile.profile_picture %}
+    <div>
+        <img id="id_user_picture" src="../../static/socialnetwork/profile.jpg" width = "200" height="200">
+    </div>
+    {% else %}
+    <div>
+        <img id="id_user_picture" src="{% url 'photo' profile.id %}" width = "200" height="200">
+    </div>
+    {% endif %}
+    <form enctype="multipart/form-data" method="post" action="{% url 'my_profile' %}">
+        <table class="profile_info">
+            <!-- {% for field in form.visible_fields %}
+                <tr>
+                    <td>{{field.label_tag}}</td>
+                    <td>{{field}}</td>
+                    <td class="error">{% for error in field.errors %} {{error}} {% endfor %}</td>
+                </tr>
+            {% endfor %} -->
+            <tr><td colspan="3">{{form.bio_input_text}}</td></tr>
+            <tr><td colspan="3">{% for error in form.bio_input_text.errors %} {{error}} {% endfor %}</td></tr>
+            <tr>
+                <td>Profile Picture: </td>
+                <td>{{form.profile_picture}}</td>
+            </tr>
+            <tr><td colspan="3">{% for error in form.profile_picture.errors %} {{error}} {% endfor %}</td></tr>
+            <tr><td colspan="3"><input id = "id_update_profile_button" type="submit" value="Submit"></td></tr>
+        </table>
+        {% csrf_token %}
+       
+        
+
+    </form>
+
+
+
+
+    <div class="card" style="width: 18rem; margin:auto;">
+        <div class="card-header">
+          You are following:
+        </div>
+        <ul class="list-group list-group-flush">
+            {% for following in followings%}
+                <li id="id_profile_link_{{following.user.username}}" class="list-group-item">
+                    <a href="{% url 'other_profile' following.user.id%}">
+                        {{following.user.first_name}} {{following.user.last_name}}</a>
+                </li>    
+            {% endfor %}
+        </ul>
+      </div>
+</div>
+
+{% endblock %}

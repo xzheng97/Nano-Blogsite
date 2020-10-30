@@ -1,0 +1,53 @@
+{% extends "socialnetwork/base.html" %}
+
+{% block user-info %}
+    <div class="header" >
+        <span id="id_logged_in_user_name"><i class="fas fa-user"></i> {{user.first_name}} {{user.last_name}}</span>
+        <div class="dropdown">
+            <button  id="id_show_nav_button" onclick="showNav()" class="dropbtn">&darr;</button>
+            <div id ="my_dropdown" class="dropdown-content">
+                <a href="{% url 'global_stream' %}" id = "id_nav_global_stream">Global Stream</a>
+                <a href="{% url 'follower_stream' %}" id = "id_nav_follower_stream">Follower Stream</a>
+                <a href="{% url 'my_profile' %}" id = "id_nav_profile">My Profile</a>
+                <a href="{% url 'login' %}" id = "id_nav_logout">Logout</a>
+              </div>
+          </div>
+    </div>
+{% endblock %}
+
+
+{% block content %}
+<div>
+    <p id="id_name_of_page" class="page_name">Profile Page for {{profile.user.first_name}} {{profile.user.last_name}}</p>
+    {% if not profile.profile_picture %}
+    <div>
+        <img id="id_user_picture" src="../../static/socialnetwork/profile.jpg" width = "200" height="200">
+    </div>
+    {% else %}
+    <div>
+        <img id="id_user_picture" src="{% url 'photo' profile.id %}" width = "200" height="200">
+    </div>
+    {% endif %}
+   
+        <table>
+            <tr>
+                <p id="id_user_bio">{{profile.bio_input_text}}</p>
+            </tr>
+           
+            <tr>
+                <form method="post" action="{% url 'other_profile' profile.user.id %}">
+                    {% if followed %}
+                    <button type="submit" id="id_unfollow">Unfollow</button>
+                    {% else %}
+                    <button type="submit" id="id_follow">Follow</button>
+                    {% endif %}
+                    {% csrf_token %}
+                </form> 
+            </tr>
+        </table>
+   
+  
+
+</div>
+
+{% endblock %}

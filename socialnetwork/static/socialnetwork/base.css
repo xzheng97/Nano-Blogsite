@@ -1,0 +1,283 @@
+.big-heading {
+    font-size: 60px;
+    font-weight: bold;
+    font-family: 'Amatic SC', cursive;
+    text-align: center;
+    color: aliceblue;
+    padding: 0px 50px;
+    background-color: #ffb8b9;
+}
+
+.card {
+    margin: 10px;
+    background-color: #cde9da;
+    text-align: left;
+}
+
+.user-info {
+    text-align: right;
+    font-family: sans-serif;
+    /* font-weight: bold; */
+    padding-right: 10px;
+    font-size: x-large;
+    background-color: #ffb8b9;
+    padding-bottom: 0px;
+}
+#id_logged_in_user_name {
+    font-family: 'Averia Libre', cursive;
+}
+
+.header {
+    padding:0px;
+}
+
+.message {
+    color:blue;
+    text-align: center;
+    font-weight: bold;
+    font-size: x-large;
+    font-family: sans-serif;
+    padding: 25px 50px;
+}
+
+.body {
+    background-image: url("bg4.jpg");
+    background-color: #dec7a4;
+    background-size: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+
+}
+.page_name {
+    font-size:32px;
+    font-family: 'Playfair Display', serif;
+}
+
+.content {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:-10px;
+    margin-bottom:-10px;
+    width: 55vw;
+    font-family: sans-serif;
+    font-size: x-large;
+    padding: 10px 40px;
+    text-align:center;
+    background-color:#ffffffe0;
+    min-height: 100vh;
+}
+
+.content form{
+    display: inline-block;
+}
+
+
+.post {
+    margin:0;
+}
+.postText{
+    margin:0;
+    padding-bottom:20px;
+    padding-left:20px;
+    border-bottom: 2px solid #a3ceb8;
+
+}
+.postHeader {
+    display:flex;
+}
+
+.postDate {
+    font-size:18px;
+    color: gray;
+}
+.postProfilePic  img{
+    border-radius: 100%;
+
+}
+
+.postUserInfo {
+    margin-left: 10px;
+}
+.postUserInfo p{
+    margin:0;
+}
+
+
+.comment {
+    display: flex;
+    overflow: normal;
+}
+.comment img {
+    border-radius: 100%
+}
+
+.commentTextWrap {
+    font-size: 20px;
+    margin:0;
+    width:33vw;
+    box-sizing: border-box;
+}
+
+
+@media screen and (max-width: 1300px) {
+
+    .content {width:715px}
+    .commentTextWrap{width: 420px}
+}
+
+@media screen and (max-width: 720px) {
+    
+}
+
+.commentDate {
+    font-size:16px;
+    color: gray;
+}
+
+
+
+.commentInput {
+    width: 100%;
+    background-color: #cde9da;
+    border-radius: 2px;
+    border: 1.5px solid #8fa398;
+}
+
+/* .commentInput:focus {
+    width: 100%;
+    background-color: #dcefe5;
+    height:70px;
+    border-radius: 2px;
+    border: 1.5px solid #8fa398;
+} */
+
+.commentInput:focus::placeholder {
+    color: transparent;
+}
+
+.commentButton {
+    font-size: 20px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 5px ;
+    padding:  5px 10px;
+    float:right;
+    background-color:#ffd2d2;
+    color:white;
+    
+}
+.commentButton:hover {
+    background-color:#ffe2e2;
+    color:white;
+}
+.profile_info {
+    margin-top: 20px;
+}
+.profile_info tr>td {
+    padding-top:10px;
+}
+.profile_bio {
+    width: 100%;
+}
+
+.list {
+    padding: 3px;
+}
+
+.list-link {
+    padding: 5px;
+}
+
+.list-link:hover {
+     background-color:lightgray;
+}
+
+th {
+    font-weight: normal;
+    text-align: left;
+}
+
+a {
+     text-decoration: none;
+     color:black;
+}
+
+button {
+    font-size: x-large;
+    padding: 3px;
+}
+
+input {
+    font-size: x-large;
+}
+
+div, form {
+    padding: 4px;
+}
+
+
+.navlink {
+    background-color: lightgray;
+}
+
+.letter {
+    padding: 3px;
+    font-family: sans-serif;
+    font-size: x-large;
+
+}
+
+.letter:hover {
+     background-color:lightgray;
+}
+
+
+
+
+/* Dropdown Button */
+.dropbtn {
+    font-size: 24px;
+    border: none;
+    cursor: pointer;
+    background-color: #ffb8b9;
+    padding-bottom: 0px;
+  }
+  
+  /* Dropdown button on hover & focus */
+  /* .dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+  } */
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+    padding-bottom:0px;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 240px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    right:0;
+    z-index: 1;
+    text-align: left;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  /* Change color of dropdown links on hover */
+  /* .dropdown-content a:hover {background-color: #ddd} */
+  
+  /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+  .show {display:block;}
